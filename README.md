@@ -8,7 +8,7 @@ Today you can get a lot of free [cloud storage][cloud storage]. There are for ex
 
 ## DiCoSto
 
-DiCoSto could solve the problem of the cloud junks - as a mind game without real implementation. DiCoSto is a `Di`stributed`Co`ntainer`Sto`rage. The overall storage is represented by distributed containers. A container is a file of definable but fixed size at one location. A container can be located locally, on various network shares ([NFS][NFS]/[SMB][SMB]) and/or on various online services ([Google Drive][GoogleDrive], [One Drive][OneDrive], [Dopbox][Dopbox], ...). DiCoSto offers an [API][API] to add/remove containers. Also an [API][API] to [crate, read, update and/or delete][CRUD] files inside the defined overall storage.
+DiCoSto could solve the problem of the cloud junks - as a mind game without real implementation. DiCoSto is a `Di`stributed`Co`ntainer`Sto`rage. The overall storage is represented by distributed containers. A container is a file of definable but fixed size at one location. A container can be located locally, on various network shares ([NFS][NFS]/[SMB][SMB]) and/or on various online services ([Google Drive][GoogleDrive], [One Drive][OneDrive], [Dopbox][Dopbox], ...). DiCoSto offers an [API][API] to add/remove containers. Also an [API][API] to [create, read, update and/or delete][CRUD] files inside the defined overall storage.
 
 Basically DiCoSto is a [virtual file system][VFS]. To the user it's a simple [file system][file system], on the backend it works with containers distributed on different services and/or locations. Each container is similar to a [block device][block device]. Adding a container means, that after the physical creation as a file, a [file system][file system], e. g. [ext4][ext4] is created inside this container. DiCoSto mounts these containers/file systems and presents them as a single file system to the user.
 
@@ -22,15 +22,15 @@ There is the question about the credentials. Every [cloud storage][cloud storage
 
 Maybe additional to the encryption of credentials it's a good idea to use encrypted file systems inside the containers to increase the security. This will be a possible drawback for the performance.
 
-DiCoSto depends on a working internet connection. This could be also a drawback and excludes DiCoSto from some possible usage szenarios.
+DiCoSto depends on a working internet connection. This could be also a drawback and excludes DiCoSto from some possible usage scenarios.
 
-For instance the user adds a large file and DiCoSto distributedes it finally on more than one of the containers. What happens in case one of the used online services is down? The user cannot access this file. This could be solved by using a software [RAID][RAID] but this requires more containers and will reduce the usable size for the user. Additional [scrubbing][scrubbing] could be required to keep the data consitent. Both, the [RAID][RAID] and also [scrubbing][scrubbing] will affect the performance.
+For instance the user adds a large file and DiCoSto distributes it finally on more than one of the containers. What happens in case one of the used online services is down? The user cannot access this file. This could be solved by using a software [RAID][RAID] but this requires more containers and will reduce the usable size for the user. Additional [scrubbing][scrubbing] could be required to keep the data consistent. Both, the [RAID][RAID] and also [scrubbing][scrubbing] will affect the performance.
 
 ## Final thoughts
 
 The DiCoSto file system seems appealing at first glance. However, the question arises as to its usefulness - is the scenario shown in the motivation really relevant? If there really is a need for such a file system, implementation will not be easy. Despite many reusable elements from the Linux kernel, it will not be a simple undertaking. Just the idea of a RAID system with files in multiple online services seems quite complex to me.
 
-So if someone wants to realize this idea - I wish him good luck and success. I would be happy to participate in the project as a tester, possibly also as a developer. I could also take over the documentation.
+So if someone wants to realize this idea - I wish good luck and success. I would be happy to participate in the project as a tester, possibly also as a developer. I could also take over the documentation.
 
 Until then I am waiting for feedback like: "Challenge accepted!".
 
