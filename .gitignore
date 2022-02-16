@@ -1,2 +1,7 @@
 /build
 /error.log
+/.vs
+/DiCoSto.vcxproj.user
+/DiCoSto.vcxproj.filters
+/Build
+/Bin

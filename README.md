@@ -6,6 +6,20 @@ Some minds about a [possible storage system][storage].
 
 Today you can get a lot of free [cloud storage][cloud storage]. There are for example [Dopbox][Dopbox], [GoogleDrive][GoogleDrive] or [Microsoft OneDrive][OneDrive] to name the big players. Not to talk about the uncoutable instances of [Nextcloud][Nextcloud], [ownCloud][ownCloud] or any other type of private clouds. So you get here 2 [GiB][MiB], there 10 [GiB][MiB] and so on. It is no problem to get 200 [GiB][MiB] or more in total size of free online storage. But it's really difficult to use this storage in a reasonable way.
 
+## LICENSE
+
+Copyright 2021 ThirtySomething
+
+This file is part of DiCoSto.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+See also attached file [`LICENSE`](./LICENSE "MIT License")..
+
 ## DiCoSto
 
 DiCoSto could solve the problem of the cloud junks - as a mind game without real implementation. DiCoSto is a `Di`stributed`Co`ntainer`Sto`rage. The overall storage is represented by distributed containers. A container is a file of definable but fixed size at one location. A container can be located locally, on various network shares ([NFS][NFS]/[SMB][SMB]) and/or on various online services ([Google Drive][GoogleDrive], [One Drive][OneDrive], [Dopbox][Dopbox], ...). DiCoSto offers an [API][API] to add/remove containers. Also an [API][API] to [create, read, update and/or delete][CRUD] files inside the defined overall storage.
@@ -34,7 +48,7 @@ So if someone wants to realize this idea - I wish good luck and success. I would
 
 Until then I am waiting for feedback like: "Challenge accepted!".
 
-## C/CPP part
+## C/CPP implementation
 
 Used information from the internet:
 
@@ -42,26 +56,17 @@ Used information from the internet:
 - The logging is realized using [Plog][plog].
 - The tests are made with [Catch2][Catch2].
 
-## LICENSE
+### ToDos
 
-Copyright 2021 ThirtySomething
+Things to be done noted here:
 
-This file is part of DiCoSto.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-See also attached file [`LICENSE`](./LICENSE "MIT License").
+- Active switch for logger? Think about changing the name of the logfile after init.
 
 [API]: https://en.wikipedia.org/wiki/API
 [ARM]: https://en.wikipedia.org/wiki/ARM_architecture
 [Android]: https://en.wikipedia.org/wiki/Android_(operating_system)
 [CRUD]: https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 [C]: https://en.wikipedia.org/wiki/C_(programming_language)
-[Catch2]: https://github.com/catchorg/Catch2
 [Cpp]: https://en.wikipedia.org/wiki/C%2B%2B
 [DiCoStoSample]: ./diagrams/DiCoSto/DiCoSto.svg "DiCoSto example"
 [Dopbox]: https://www.dropbox.com/
@@ -82,11 +87,12 @@ See also attached file [`LICENSE`](./LICENSE "MIT License").
 [ext4]: https://en.wikipedia.org/wiki/Ext4
 [file system]: https://en.wikipedia.org/wiki/File_system
 [iOS]: https://en.wikipedia.org/wiki/IOS
-[makefile]: https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
 [ownCloud]: https://owncloud.com/
-[plog]: https://github.com/SergiusTheBest/plog
 [portability]: https://en.wikipedia.org/wiki/Software_portability
-[scrubbing]: https://en.wikipedia.org/wiki/Data_scrubbing
 [smartphone]: https://en.wikipedia.org/wiki/Smartphone
 [storage]: https://en.wikipedia.org/wiki/Computer_data_storage
 [x86-64]: https://en.wikipedia.org/wiki/X86-64
+[scrubbing]: https://en.wikipedia.org/wiki/Data_scrubbing
+[makefile]: https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
+[plog]: https://github.com/SergiusTheBest/plog
+[Catch2]: https://github.com/catchorg/Catch2

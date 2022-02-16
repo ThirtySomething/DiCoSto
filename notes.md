@@ -2,13 +2,9 @@
 
 This file is used to keep some internal notes.
 
-## Environment
+## Setup of `.editorconfig`
 
-- Install gcc/g++
-
-  ```bash
-  sudo apt-get install build-essential
-  ```
+See [EditorConfig][edconf] for more details.
 
 ## Build helpers
 
@@ -47,3 +43,6 @@ This file is used to keep some internal notes.
     # Example
     git rm -f ./vendor/plog
     ```
+
+
+[edconf]: https://editorconfig.org/
