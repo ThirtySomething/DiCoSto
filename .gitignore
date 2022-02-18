@@ -1,7 +1,8 @@
+/.vs
+/DiCoSto.vcxproj.filters
+/DiCoSto.vcxproj.user
+/bin
+/build
 /build
 /error.log
-/.vs
-/DiCoSto.vcxproj.user
-/DiCoSto.vcxproj.filters
-/Build
-/Bin
+Container1st.dta

@@ -16,7 +16,7 @@ namespace net {
                 // *****************************************************************************
                 // Global variable of log filename
                 // *****************************************************************************
-                static std::string g_logFilename = net::derpaul::dicosto::Defines::LoggerDefaultFilename;
+                static std::string g_logFilename = net::derpaul::dicosto::defines::LoggerDefaultFilename;
                 // *****************************************************************************
                 // Global variable of log appender
                 // *****************************************************************************

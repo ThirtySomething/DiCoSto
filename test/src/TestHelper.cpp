@@ -1,4 +1,4 @@
-#include "test/TestHelper.h"
+#include "TestHelper.h"
 #include <sys/stat.h>
 #include <cstdio>
 #include "Logger.h"

@@ -14,20 +14,18 @@ namespace net {
         namespace dicosto {
             // *****************************************************************************
             // *****************************************************************************
-            Container::Container(const std::string& containerName) : isMounted{ false }, containerName{ containerName }, containerSize{ Defines::ContainerDefaultContainerSize } {
-                PLOGD << "containerName [" << containerName << "]";
+            Container::Container(const std::string& containerName) : isMounted{ false }, containerName{ containerName }, containerSize{ defines::ContainerDefaultContainerSize } {
             }
 
             // *****************************************************************************
             // *****************************************************************************
-            Container::Container(void) : isMounted{ false }, containerName{ Defines::ContainerDefaultName }, containerSize{ Defines::ContainerDefaultContainerSize } {
-                PLOGD << "constructor";
+            Container::Container(void) : isMounted{ false }, containerName{ defines::ContainerDefaultName }, containerSize{ defines::ContainerDefaultContainerSize } {
             }
 
             // *****************************************************************************
             // *****************************************************************************
             Container::~Container(void) {
-                PLOGD << "destructor";
+                this->containerUnmount();
             }
 
             // *****************************************************************************
@@ -35,10 +33,10 @@ namespace net {
             bool Container::containerCreate(void) {
                 // Create an empty file filled with zeros, see also
                 // https://stackoverflow.com/questions/7896035/c-make-a-file-of-a-specific-size
-                std::vector<char> empty(Defines::ContainerDefaultBlockSize, 0);
+                std::vector<char> empty(defines::ContainerDefaultBlockSize, 0);
                 std::ofstream ofs(this->containerNameGet(), std::ios::binary | std::ios::out);
 
-                for (unsigned long i = 0; i < Defines::ContainerDefaultBlockSize * this->containerSizeGet(); i++)
+                for (unsigned long i = 0; i < defines::ContainerDefaultBlockSize * this->containerSizeGet(); i++)
                 {
                     if (!ofs.write(&empty[0], empty.size()))
                     {

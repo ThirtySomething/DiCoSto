@@ -19,22 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\BlockType.h" />
-    <ClInclude Include="include\BlockUnknown.h" />
-    <ClInclude Include="include\Container.h" />
-    <ClInclude Include="include\Defines.h" />
-    <ClInclude Include="include\Logger.h" />
-    <ClInclude Include="include\test\Container_test.h" />
-    <ClInclude Include="include\test\Logger_test.h" />
-    <ClInclude Include="include\test\TestHelper.h" />
+    <ClInclude Include="prog\include\Block.h" />
+    <ClInclude Include="prog\include\BlockType.h" />
+    <ClInclude Include="prog\include\BlockUnknown.h" />
+    <ClInclude Include="prog\include\Container.h" />
+    <ClInclude Include="prog\include\DataSize.h" />
+    <ClInclude Include="prog\include\Defines.h" />
+    <ClInclude Include="prog\include\Logger.h" />
+    <ClInclude Include="test\include\Block_test.h" />
+    <ClInclude Include="test\include\Container_test.h" />
+    <ClInclude Include="test\include\Logger_test.h" />
+    <ClInclude Include="test\include\TestHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\BlockUnknown.cpp" />
-    <ClCompile Include="src\Container.cpp" />
-    <ClCompile Include="src\Defines.cpp" />
-    <ClCompile Include="src\discosto_test.cpp" />
-    <ClCompile Include="src\Logger.cpp" />
-    <ClCompile Include="src\test\TestHelper.cpp" />
+    <ClCompile Include="prog\src\Block.cpp" />
+    <ClCompile Include="prog\src\BlockUnknown.cpp" />
+    <ClCompile Include="prog\src\Container.cpp" />
+    <ClCompile Include="prog\src\Logger.cpp" />
+    <ClCompile Include="test\src\discosto_test.cpp" />
+    <ClCompile Include="test\src\TestHelper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -84,34 +87,34 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <NMakeOutput>DiCoSto.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <OutDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(SolutionName)</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)vendor\plog\include;$(SolutionDir)vendor\Catch2\single_include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)prog\include;$(SolutionDir)test\include;$(SolutionDir)vendor\Catch2\single_include;$(SolutionDir)vendor\plog\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakeOutput>DiCoSto.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <OutDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(SolutionName)</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)vendor\plog\include;$(SolutionDir)vendor\Catch2\single_include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)prog\include;$(SolutionDir)test\include;$(SolutionDir)vendor\Catch2\single_include;$(SolutionDir)vendor\plog\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeOutput>DiCoSto.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <OutDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(SolutionName)</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)vendor\plog\include;$(SolutionDir)vendor\Catch2\single_include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)prog\include;$(SolutionDir)test\include;$(SolutionDir)vendor\Catch2\single_include;$(SolutionDir)vendor\plog\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakeOutput>DiCoSto.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <OutDir>$(SolutionDir)Bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(SolutionName)</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)vendor\plog\include;$(SolutionDir)vendor\Catch2\single_include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)prog\include;$(SolutionDir)test\include;$(SolutionDir)vendor\Catch2\single_include;$(SolutionDir)vendor\plog\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

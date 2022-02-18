@@ -3,6 +3,7 @@
 #include "BlockType.h"
 #include "Defines.h"
 #include <memory>
+#include <vector>
 
 namespace net {
     namespace derpaul {
@@ -10,7 +11,7 @@ namespace net {
             class BlockUnknown {
             public:
                 // *****************************************************************************
-                BlockUnknown(void);
+                BlockUnknown(const BlockType& blocktype = BlockType::Unknown);
                 // *****************************************************************************
                 ~BlockUnknown(void);
                 // *****************************************************************************
@@ -18,7 +19,7 @@ namespace net {
                 // *****************************************************************************
             protected:
                 // *****************************************************************************
-                std::unique_ptr<unsigned char[]> bulkdata;
+                std::unique_ptr<defines::ContainerData> bulkdata;
                 // *****************************************************************************
             };
         }

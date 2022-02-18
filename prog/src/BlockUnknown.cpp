@@ -5,8 +5,9 @@ namespace net {
         namespace dicosto {
             // *****************************************************************************
             // *****************************************************************************
-            BlockUnknown::BlockUnknown(void) {
-                std::unique_ptr<unsigned char[], std::default_delete<unsigned char[]>> bulkdata(new unsigned char[Defines::ContainerDefaultBlockSize]);
+            BlockUnknown::BlockUnknown(const BlockType& blocktype) {
+                this->bulkdata = std::unique_ptr < defines::ContainerData>(new defines::ContainerData(defines::ContainerDefaultBlockSize, 0));
+                (*this->bulkdata)[0] = static_cast<char>(blocktype);
             }
 
             // *****************************************************************************
@@ -19,7 +20,7 @@ namespace net {
             BlockType BlockUnknown::getBlockType(void) {
                 BlockType btype = BlockType::Unknown;
 
-                switch (bulkdata[0]) {
+                switch ((*this->bulkdata)[0]) {
                 case 0x01:
                     btype = BlockType::MetaContainer;
                     break;

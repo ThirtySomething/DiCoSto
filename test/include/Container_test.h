@@ -2,79 +2,79 @@
 
 #include <catch2/catch.hpp>
 
-#include "../Container.h"
-#include "../Defines.h"
+#include "Container.h"
+#include "Defines.h"
 #include "TestHelper.h"
 
 
 // *****************************************************************************
 // *****************************************************************************
 // Group name of all tests here
-static const char groupContainer[] = "[Container]";
+static const char TestContainer[] = "[Container]";
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test container get default name", groupContainer) {
+SCENARIO("Test container get default name", TestContainer) {
     GIVEN("Get fresh container") {
         THEN("Cleanup") {
-            removefile(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            removefile(net::derpaul::dicosto::defines::ContainerDefaultName);
         }
 
         THEN("Check default container name") {
             net::derpaul::dicosto::Container sut;
             std::string containerName = sut.containerNameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultName == containerName);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultName == containerName);
         }
     }
 }
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test default container size", groupContainer) {
+SCENARIO("Test default container size", TestContainer) {
     GIVEN("Get fresh container") {
         THEN("Cleanup") {
-            removefile(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            removefile(net::derpaul::dicosto::defines::ContainerDefaultName);
         }
 
         THEN("Check default container size") {
             net::derpaul::dicosto::Container sut;
             unsigned long containerSize = sut.containerSizeGet();
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultContainerSize == containerSize);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultContainerSize == containerSize);
         }
     }
 }
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test change container size", groupContainer) {
+SCENARIO("Test change container size", TestContainer) {
     GIVEN("Get fresh container") {
         net::derpaul::dicosto::Container sut;
 
         THEN("Cleanup") {
-            removefile(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            removefile(net::derpaul::dicosto::defines::ContainerDefaultName);
         }
 
         THEN("Check default container size") {
             unsigned long containerSize = sut.containerSizeGet();
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultContainerSize == containerSize);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultContainerSize == containerSize);
         }
 
         WHEN("Check new size smaller than current size") {
-            unsigned long containerSizeNew = net::derpaul::dicosto::Defines::ContainerDefaultContainerSize / 2;
+            unsigned long containerSizeNew = net::derpaul::dicosto::defines::ContainerDefaultContainerSize / 2;
             sut.containerSizeSet(containerSizeNew);
             unsigned long containerSize = sut.containerSizeGet();
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultContainerSize == containerSize);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultContainerSize == containerSize);
         }
 
         WHEN("Check new size equal than current size") {
-            unsigned long containerSizeNew = net::derpaul::dicosto::Defines::ContainerDefaultContainerSize;
+            unsigned long containerSizeNew = net::derpaul::dicosto::defines::ContainerDefaultContainerSize;
             sut.containerSizeSet(containerSizeNew);
             unsigned long containerSize = sut.containerSizeGet();
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultContainerSize == containerSize);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultContainerSize == containerSize);
         }
 
         WHEN("Check new size greater than current size") {
-            unsigned long containerSizeNew = net::derpaul::dicosto::Defines::ContainerDefaultContainerSize * 2;
+            unsigned long containerSizeNew = net::derpaul::dicosto::defines::ContainerDefaultContainerSize * 2;
             sut.containerSizeSet(containerSizeNew);
             unsigned long containerSize = sut.containerSizeGet();
             REQUIRE(containerSizeNew == containerSize);
@@ -84,35 +84,35 @@ SCENARIO("Test change container size", groupContainer) {
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test create container", groupContainer) {
+SCENARIO("Test create container", TestContainer) {
     GIVEN("Get fresh container") {
         net::derpaul::dicosto::Container sut;
 
         THEN("Cleanup") {
-            removefile(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            removefile(net::derpaul::dicosto::defines::ContainerDefaultName);
         }
 
         THEN("Check container is not existing") {
-            bool containerExist = file_exists(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            bool containerExist = file_exists(net::derpaul::dicosto::defines::ContainerDefaultName);
             REQUIRE(false == containerExist);
         }
 
         WHEN("Check container exists") {
             bool initSuccess = sut.containerInit();
             REQUIRE(true == initSuccess);
-            bool containerExist = file_exists(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            bool containerExist = file_exists(net::derpaul::dicosto::defines::ContainerDefaultName);
             REQUIRE(true == containerExist);
         }
 
         THEN("Cleanup") {
-            removefile(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            removefile(net::derpaul::dicosto::defines::ContainerDefaultName);
         }
     }
 }
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test rename container unmounted", groupContainer) {
+SCENARIO("Test rename container unmounted", TestContainer) {
     const std::string containerNameNew = "container.dta";
 
     GIVEN("Get fresh container") {
@@ -120,12 +120,12 @@ SCENARIO("Test rename container unmounted", groupContainer) {
 
         THEN("Cleanup") {
             removefile(containerNameNew);
-            removefile(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            removefile(net::derpaul::dicosto::defines::ContainerDefaultName);
         }
 
         WHEN("Check container default name") {
             std::string containerNameOld = sut.containerNameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultName == containerNameOld);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultName == containerNameOld);
         }
 
         THEN("Check container is not mounted") {
@@ -138,7 +138,7 @@ SCENARIO("Test rename container unmounted", groupContainer) {
             bool successfulRename = sut.containerRename(containerNameNew);
             std::string containerName = sut.containerNameGet();
             REQUIRE(true == successfulRename);
-            REQUIRE(containerNameNew != net::derpaul::dicosto::Defines::ContainerDefaultName);
+            REQUIRE(containerNameNew != net::derpaul::dicosto::defines::ContainerDefaultName);
             REQUIRE(containerName == containerNameNew);
         }
     }
@@ -146,7 +146,7 @@ SCENARIO("Test rename container unmounted", groupContainer) {
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test rename container mounted", groupContainer) {
+SCENARIO("Test rename container mounted", TestContainer) {
     const std::string containerNameNew = "container.dta";
     std::string containerName;
     bool mountStatus;
@@ -154,13 +154,13 @@ SCENARIO("Test rename container mounted", groupContainer) {
 
     GIVEN("Get fresh container") {
         THEN("Cleanup") {
-            removefile(net::derpaul::dicosto::Defines::ContainerDefaultName);
+            removefile(net::derpaul::dicosto::defines::ContainerDefaultName);
             removefile(containerNameNew);
         }
 
         WHEN("Check container default name") {
             containerName = sut.containerNameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultName == containerName);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultName == containerName);
         }
 
         THEN("Check container is not mounted") {
@@ -190,7 +190,7 @@ SCENARIO("Test rename container mounted", groupContainer) {
             // Because of mount status this should not work
             containerName = sut.containerNameGet();
             REQUIRE(containerNameNew != containerName);
-            REQUIRE(net::derpaul::dicosto::Defines::ContainerDefaultName == containerName);
+            REQUIRE(net::derpaul::dicosto::defines::ContainerDefaultName == containerName);
         }
     }
 }

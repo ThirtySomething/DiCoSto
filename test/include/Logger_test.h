@@ -2,43 +2,43 @@
 #include <stdbool.h>
 #include <catch2/catch.hpp>
 #include <fstream>
-#include "../Defines.h"
-#include "../Logger.h"
+#include "Defines.h"
+#include "Logger.h"
 #include "TestHelper.h"
 
 // *****************************************************************************
 // *****************************************************************************
 // Group name of all tests here
-static const char groupLogger[] = "[Logger]";
+static const char TestLogger[] = "[Logger]";
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test logger default filename", groupLogger) {
+SCENARIO("Test logger default filename", TestLogger) {
     GIVEN("Got fresh logger") {
         THEN("Initialize") {
-            loggerReset(net::derpaul::dicosto::Defines::LoggerDefaultFilename);
+            loggerReset(net::derpaul::dicosto::defines::LoggerDefaultFilename);
         }
 
         THEN("Check default logger filename") {
             // Read default logfile name
             std::string loggerName = net::derpaul::dicosto::Logger::logFilenameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
         }
 
         WHEN("Check filename returned by initialization") {
             // Logfile name of init should be equal to default
             std::string loggerName = net::derpaul::dicosto::Logger::logInit();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
         }
     }
 }
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test logger default severity", groupLogger) {
+SCENARIO("Test logger default severity", TestLogger) {
     GIVEN("Got fresh logger") {
         THEN("Initialize") {
-            loggerReset(net::derpaul::dicosto::Defines::LoggerDefaultFilename);
+            loggerReset(net::derpaul::dicosto::defines::LoggerDefaultFilename);
         }
 
         THEN("Check default logger severity") {
@@ -51,18 +51,18 @@ SCENARIO("Test logger default severity", groupLogger) {
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test logger custom filename", groupLogger) {
+SCENARIO("Test logger custom filename", TestLogger) {
     std::string logFilename = "newlog.log";
 
     GIVEN("Get fresh logger") {
         THEN("Initialize") {
-            loggerReset(net::derpaul::dicosto::Defines::LoggerDefaultFilename);
+            loggerReset(net::derpaul::dicosto::defines::LoggerDefaultFilename);
         }
 
         THEN("Check default logger filename") {
             // Read default logfile name
             std::string loggerName = net::derpaul::dicosto::Logger::logFilenameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
         }
 
         WHEN("Init with different filename") {
@@ -81,22 +81,22 @@ SCENARIO("Test logger custom filename", groupLogger) {
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test logger set/get of filename", groupLogger) {
+SCENARIO("Test logger set/get of filename", TestLogger) {
     GIVEN("Get fresh logger") {
         THEN("Initialize") {
-            loggerReset(net::derpaul::dicosto::Defines::LoggerDefaultFilename);
+            loggerReset(net::derpaul::dicosto::defines::LoggerDefaultFilename);
         }
 
         THEN("Check default logger filename") {
             // Read default logfile name
             std::string loggerName = net::derpaul::dicosto::Logger::logFilenameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
         }
 
         WHEN("Use default Init") {
             // Logfile name of init should be equal to default
             std::string loggerName = net::derpaul::dicosto::Logger::logInit();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
         }
 
         WHEN("Rename logfile") {
@@ -112,37 +112,37 @@ SCENARIO("Test logger set/get of filename", groupLogger) {
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test log file created", groupLogger) {
+SCENARIO("Test log file created", TestLogger) {
     const std::string sut = "log message";
 
     GIVEN("Get fresh logger") {
         THEN("Initialize") {
-            loggerReset(net::derpaul::dicosto::Defines::LoggerDefaultFilename);
+            loggerReset(net::derpaul::dicosto::defines::LoggerDefaultFilename);
         }
 
         THEN("Check default logger filename") {
             // Read default logfile name
             std::string loggerName = net::derpaul::dicosto::Logger::logFilenameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
         }
 
         WHEN("Check logfile existence") {
             // No logfile should exist
-            REQUIRE(false == file_exists(net::derpaul::dicosto::Defines::LoggerDefaultFilename));
+            REQUIRE(false == file_exists(net::derpaul::dicosto::defines::LoggerDefaultFilename));
             // Logfile name of init should be equal to default
             std::string loggerName = net::derpaul::dicosto::Logger::logInit();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
             // Write a message to logfile
             PLOGD << sut;
             // Now a logfile exist
-            REQUIRE(true == file_exists(net::derpaul::dicosto::Defines::LoggerDefaultFilename));
+            REQUIRE(true == file_exists(net::derpaul::dicosto::defines::LoggerDefaultFilename));
         }
     }
 }
 
 // *****************************************************************************
 // *****************************************************************************
-SCENARIO("Test log message", groupLogger) {
+SCENARIO("Test log message", TestLogger) {
     const std::string logmsg = "log message";
     std::string line = "";
     bool found = false;
@@ -150,27 +150,27 @@ SCENARIO("Test log message", groupLogger) {
 
     GIVEN("Get fresh logger") {
         THEN("Initialize") {
-            loggerReset(net::derpaul::dicosto::Defines::LoggerDefaultFilename);
+            loggerReset(net::derpaul::dicosto::defines::LoggerDefaultFilename);
         }
 
         THEN("Check default logger filename") {
             // Read default logfile name
             std::string loggerName = net::derpaul::dicosto::Logger::logFilenameGet();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
         }
 
         WHEN("Check logfile content") {
             // No logfile should exist
-            REQUIRE(false == file_exists(net::derpaul::dicosto::Defines::LoggerDefaultFilename));
+            REQUIRE(false == file_exists(net::derpaul::dicosto::defines::LoggerDefaultFilename));
             // Logfile name of init should be equal to default
             std::string loggerName = net::derpaul::dicosto::Logger::logInit();
-            REQUIRE(net::derpaul::dicosto::Defines::LoggerDefaultFilename == loggerName);
+            REQUIRE(net::derpaul::dicosto::defines::LoggerDefaultFilename == loggerName);
             // Write a message to logfile
             PLOGD << logmsg;
             // Now a logfile should exist
-            REQUIRE(true == file_exists(net::derpaul::dicosto::Defines::LoggerDefaultFilename));
+            REQUIRE(true == file_exists(net::derpaul::dicosto::defines::LoggerDefaultFilename));
             // Check content of logfile
-            std::ifstream infile(net::derpaul::dicosto::Defines::LoggerDefaultFilename.c_str());
+            std::ifstream infile(net::derpaul::dicosto::defines::LoggerDefaultFilename.c_str());
             // Read line by line
             while (std::getline(infile, line)) {
                 // Count the lines
