@@ -48,27 +48,28 @@ So if someone wants to realize this idea - I wish good luck and success. I would
 
 Until then I am waiting for feedback like: "Challenge accepted!".
 
-## C/CPP implementation
+## Technical minds
 
-Used information from the internet:
+From my point of view some kind of listener is required. The listener should register all kind of access to the storage. While I've started (and meanwhile removed) my implementation, some things popped up in my mind.
 
-- The makefile is based on this one [here][makefile].
-- The logging is realized using [Plog][plog].
-- The tests are made with [Catch2][Catch2].
+The basis storage container could be something like [iSCSI][iSCSI]. This is a well known technique already used for [SAN's][san]. This will offer a block device over the network.
 
-### ToDos
+In consequence this means that this listener should
 
-Things to be done noted here:
+- Support [iSCSI][iSCSI]
+- Support [RAID][RAID]
+- Support access to the storage
+- ...
 
-- Active switch for logger? Think about changing the name of the logfile after init.
+I should think much more about this.
 
 [API]: https://en.wikipedia.org/wiki/API
 [ARM]: https://en.wikipedia.org/wiki/ARM_architecture
 [Android]: https://en.wikipedia.org/wiki/Android_(operating_system)
 [CRUD]: https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 [C]: https://en.wikipedia.org/wiki/C_(programming_language)
+[Catch2]: https://github.com/catchorg/Catch2
 [Cpp]: https://en.wikipedia.org/wiki/C%2B%2B
-[DiCoStoSample]: ./diagrams/DiCoSto/DiCoSto.svg "DiCoSto example"
 [Dopbox]: https://www.dropbox.com/
 [GoogleDrive]: https://www.google.com/drive/
 [Linux]: https://en.wikipedia.org/wiki/Linux
@@ -87,12 +88,13 @@ Things to be done noted here:
 [ext4]: https://en.wikipedia.org/wiki/Ext4
 [file system]: https://en.wikipedia.org/wiki/File_system
 [iOS]: https://en.wikipedia.org/wiki/IOS
+[iSCSI]: https://en.wikipedia.org/wiki/ISCSI
+[makefile]: https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
 [ownCloud]: https://owncloud.com/
+[plog]: https://github.com/SergiusTheBest/plog
 [portability]: https://en.wikipedia.org/wiki/Software_portability
+[san]: https://en.wikipedia.org/wiki/Storage_area_network
+[scrubbing]: https://en.wikipedia.org/wiki/Data_scrubbing
 [smartphone]: https://en.wikipedia.org/wiki/Smartphone
 [storage]: https://en.wikipedia.org/wiki/Computer_data_storage
 [x86-64]: https://en.wikipedia.org/wiki/X86-64
-[scrubbing]: https://en.wikipedia.org/wiki/Data_scrubbing
-[makefile]: https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
-[plog]: https://github.com/SergiusTheBest/plog
-[Catch2]: https://github.com/catchorg/Catch2
