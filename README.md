@@ -4,7 +4,7 @@ Some minds about a [possible storage system][storage].
 
 ## Motivation
 
-Today you can get a lot of free [cloud storage][cloud storage]. There are for example [Dopbox][Dopbox], [GoogleDrive][GoogleDrive] or [Microsoft OneDrive][OneDrive] to name the big players. Not to talk about the uncoutable instances of [Nextcloud][Nextcloud], [ownCloud][ownCloud] or any other type of private clouds. So you get here 2 [GiB][MiB], there 10 [GiB][MiB] and so on. It is no problem to get 200 [GiB][MiB] or more in total size of free online storage. But it's really difficult to use this storage in a reasonable way.
+Today you can get a lot of free [cloud storage][cloud storage]. There are for example [Dropbox][Dropbox], [GoogleDrive][GoogleDrive] or [Microsoft OneDrive][OneDrive] to name the big players. Not to talk about the uncoutable instances of [Nextcloud][Nextcloud], [ownCloud][ownCloud] or any other type of private clouds. So you get here 2 [GiB][MiB], there 10 [GiB][MiB] and so on. It is no problem to get 200 [GiB][MiB] or more in total size of free online storage. But it's really difficult to use this storage in a reasonable way.
 
 ## LICENSE
 
@@ -22,7 +22,7 @@ See also attached file [`LICENSE`](./LICENSE "MIT License")..
 
 ## DiCoSto
 
-DiCoSto could solve the problem of the cloud junks - as a mind game without real implementation. DiCoSto is a `Di`stributed`Co`ntainer`Sto`rage. The overall storage is represented by distributed containers. A container is a file of definable but fixed size at one location. A container can be located locally, on various network shares ([NFS][NFS]/[SMB][SMB]) and/or on various online services ([Google Drive][GoogleDrive], [One Drive][OneDrive], [Dopbox][Dopbox], ...). DiCoSto offers an [API][API] to add/remove containers. Also an [API][API] to [create, read, update and/or delete][CRUD] files inside the defined overall storage.
+DiCoSto could solve the problem of the cloud junks - as a mind game without real implementation. DiCoSto is a `Di`stributed`Co`ntainer`Sto`rage. The overall storage is represented by distributed containers. A container is a file of definable but fixed size at one location. A container can be located locally, on various network shares ([NFS][NFS]/[SMB][SMB]) and/or on various online services ([Google Drive][GoogleDrive], [One Drive][OneDrive], [Dropbox][Dropbox], ...). DiCoSto offers an [API][API] to add/remove containers. Also an [API][API] to [create, read, update and/or delete][CRUD] files inside the defined overall storage.
 
 Basically DiCoSto is a [virtual file system][VFS]. To the user it's a simple [file system][file system], on the backend it works with containers distributed on different services and/or locations. Each container is similar to a [block device][block device]. Adding a container means, that after the physical creation as a file, a [file system][file system], e. g. [ext4][ext4] is created inside this container. DiCoSto mounts these containers/file systems and presents them as a single file system to the user.
 
@@ -70,7 +70,7 @@ I should think much more about this.
 [C]: https://en.wikipedia.org/wiki/C_(programming_language)
 [Catch2]: https://github.com/catchorg/Catch2
 [Cpp]: https://en.wikipedia.org/wiki/C%2B%2B
-[Dopbox]: https://www.dropbox.com/
+[Dropbox]: https://www.dropbox.com/
 [GoogleDrive]: https://www.google.com/drive/
 [Linux]: https://en.wikipedia.org/wiki/Linux
 [MiB]: https://en.wikipedia.org/wiki/Byte
